@@ -1,0 +1,21 @@
+{
+	"scripts": {
+		"dev": "parcel ./src/index.html",
+		"build": "parcel build ./src/index.html"
+	},
+	"devDependencies": {
+		"@parcel/packager-raw-url": "^2.10.3",
+		"@parcel/transformer-webmanifest": "^2.10.3",
+		"@types/react": "^18.2.79",
+		"parcel": "^2.10.3",
+		"postcss": "^8.4.32",
+		"process": "^0.11.10"
+	},
+	"dependencies": {
+		"@parcel/service-worker": "^2.10.3",
+		"prettier": "^3.1.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"tailwindcss": "^3.3.5"
+	}
+}
