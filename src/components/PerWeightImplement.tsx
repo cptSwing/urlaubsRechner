@@ -53,10 +53,10 @@ function markupWrap(data: ImplementType, target: number, multipleDb = false) {
     const setLimits = {
         "15": halveIfMultiple(2, multipleDb),
         "10": halveIfMultiple(6, multipleDb),
-        "5": halveIfMultiple(6, multipleDb),
-        "2.5": halveIfMultiple(6, multipleDb),
-        "2": halveIfMultiple(8, multipleDb),
-        "1.25": halveIfMultiple(8, multipleDb),
+        "5": halveIfMultiple(8, multipleDb),
+        "2.5": halveIfMultiple(8, multipleDb),
+        "2": halveIfMultiple(4, multipleDb),
+        "1.25": halveIfMultiple(6, multipleDb),
         "0.5": halveIfMultiple(8, multipleDb),
     };
     const safeSet = Object.entries(setLimits).map((property, idx, arr) => {
