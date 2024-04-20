@@ -70,7 +70,7 @@ function markupWrap(data: ImplementType, target: number, multipleDb = false) {
     return (
         <div className="w-full flex-row justify-between">
             <div className="mx-2 inline">
-                {`${multipleDb ? "2" : "1"} ${data.implementWeight}kg ${data.implementType}`}:{" "}
+                {`${data.implementSides / 2} ${data.implementWeight}kg ${data.implementType}`}:{" "}
                 {returnTargetWeight(target, data.implementWeight, multipleDb)}kg/side
             </div>
 
@@ -147,8 +147,16 @@ function returnTargetWeight(weight: number | null, implementWeight: number, mult
 }
 
 const quarterIfMultiple = (num: number, isMultiple: boolean) => {
-    // return num;
-    return isMultiple ? num / 4 : num / 2;
+    if (isMultiple) {
+        const quartered = num / 4;
+        const floored = Math.floor(quartered);
+        const isDecimal = floored !== quartered;
+        const decimalReturn = isDecimal && floored > 0 ? floored : 0;
+
+        return isDecimal ? decimalReturn : quartered;
+    } else {
+        return num / 2;
+    }
 };
 
 export enum ImplementEnum {
