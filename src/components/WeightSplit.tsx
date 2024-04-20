@@ -44,11 +44,5 @@ const WeightSplit = ({
 export default WeightSplit;
 
 export function isNumber(num: number | null) {
-    console.log(
-        "%c[WeightSplit]",
-        "color: #759e99",
-        `typeof num === "number" && isFinite(num) :`,
-        typeof num === "number" && isFinite(num),
-    );
     return typeof num === "number" && isFinite(num);
 }
