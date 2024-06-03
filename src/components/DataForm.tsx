@@ -71,7 +71,7 @@ const BruttoGehalt = ({ dataState }: { dataState: [UrlaubsData, React.Dispatch<R
                             })
                         }
                     >
-                        5%
+                        5
                     </div>
                     <div
                         onClick={(_e) =>
@@ -82,7 +82,7 @@ const BruttoGehalt = ({ dataState }: { dataState: [UrlaubsData, React.Dispatch<R
                             })
                         }
                     >
-                        7.5%
+                        7.5
                     </div>
                     <div
                         onClick={(_e) =>
@@ -93,7 +93,7 @@ const BruttoGehalt = ({ dataState }: { dataState: [UrlaubsData, React.Dispatch<R
                             })
                         }
                     >
-                        10%
+                        10
                     </div>
                     <div
                         onClick={(_e) =>
@@ -104,7 +104,7 @@ const BruttoGehalt = ({ dataState }: { dataState: [UrlaubsData, React.Dispatch<R
                             })
                         }
                     >
-                        15%
+                        15
                     </div>
                     <div
                         onClick={(_e) =>
@@ -115,7 +115,7 @@ const BruttoGehalt = ({ dataState }: { dataState: [UrlaubsData, React.Dispatch<R
                             })
                         }
                     >
-                        20%
+                        20
                     </div>
                 </div>
             </div>
