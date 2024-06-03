@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input {
+    @apply bg-gray-200 pl-1;
+}
+
+.grid-row-style {
+    @apply [&>*:nth-child(8n+09)]:bg-gray-200 [&>*:nth-child(8n+10)]:bg-gray-200 [&>*:nth-child(8n+11)]:bg-gray-200 [&>*:nth-child(8n+12)]:bg-gray-200;
+    @apply [&>*:nth-child(8n+09)]:py-2 [&>*:nth-child(8n+10)]:py-2 [&>*:nth-child(8n+11)]:py-2 [&>*:nth-child(8n+12)]:py-2;
+    /* @apply [&>*:nth-child(8n+09)]:align [&>*:nth-child(8n+10)]:align [&>*:nth-child(8n+11)]:align [&>*:nth-child(8n+12)]; */
+}

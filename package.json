@@ -1,7 +1,8 @@
 {
     "scripts": {
-        "dev": "parcel ./src/index.html",
-        "build": "parcel build ./src/index.html"
+        "dev": "parcel --port 2345 ./src/index.html",
+        "build": "parcel build ./src/index.html",
+        "clean": "rm -rf ./node_modules && rm -rf ./dist && rm -rf ./.parcel-cache && yarn install"
     },
     "devDependencies": {
         "@parcel/packager-raw-url": "^2.10.3",

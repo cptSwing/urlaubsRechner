@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
-import PerWeightImplement, { ImplementEnum } from "../components/PerWeightImplement";
-import WeightInput from "../components/WeightInput";
-import WeightSplit from "../components/WeightSplit";
-import WhichPlates from "../components/WhichPlates";
+import { DataForm } from "../components/DataForm";
 
 const App = () => {
     const targetWeightState = useState<number | null>(null);
@@ -13,17 +10,8 @@ const App = () => {
     }, []);
 
     return (
-        <div className="w-3/4">
-            <div className="">
-                <WeightSplit targetWeightState={targetWeightState} />
-                <PerWeightImplement targetWeightState={targetWeightState} implement={ImplementEnum["TrapBar"]} />
-                <PerWeightImplement targetWeightState={targetWeightState} implement={ImplementEnum["BarBell"]} />
-                <PerWeightImplement targetWeightState={targetWeightState} implement={ImplementEnum["EzBar"]} />
-                <PerWeightImplement targetWeightState={targetWeightState} implement={ImplementEnum["DumbBell"]} />
-                <PerWeightImplement targetWeightState={targetWeightState} implement={ImplementEnum["DumbBells"]} />
-            </div>
-            <WeightInput targetWeightState={targetWeightState} />
-            <WhichPlates targetWeightState={targetWeightState} />
+        <div className="relative">
+            <DataForm />
         </div>
     );
 };
