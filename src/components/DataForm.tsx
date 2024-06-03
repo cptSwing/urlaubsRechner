@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const DataForm = () => {
     const dataState = useState<UrlaubsData>({
@@ -29,11 +29,13 @@ export const DataForm = () => {
 const BruttoGehalt = ({ dataState }: { dataState: [UrlaubsData, React.Dispatch<React.SetStateAction<UrlaubsData>>] }) => {
     const [data, setData] = dataState;
     const { brutto, urlaubstageJahrInsgesamt, urlaubstageJahrGenommen, arbeitsTageWoche } = data;
+    const bruttoRef = useRef<null | HTMLInputElement>(null);
 
     return (
         <div className="flex h-full flex-col items-start justify-start border p-1">
             <div className="mb-2 text-sm">Brutto Gehalt:</div>
             <input
+                ref={bruttoRef}
                 className=""
                 type="number"
                 defaultValue={brutto}
@@ -56,6 +58,67 @@ const BruttoGehalt = ({ dataState }: { dataState: [UrlaubsData, React.Dispatch<R
                     });
                 }}
             />
+
+            <div className="mt-2 w-full">
+                <div className="text-sm">Gehaltserhöhung um:</div>
+                <div className="-mt-2 mb-2 flex size-full items-center justify-between [&>*]:m-0.5 [&>*]:h-fit [&>*]:min-w-[18%] [&>*]:rounded-md [&>*]:bg-gray-200 [&>*]:p-1 [&>*]:text-center [&>*]:text-sm hover:[&>*]:bg-gray-300">
+                    <div
+                        onClick={(_e) =>
+                            setData((oldVal) => {
+                                const newVal = brutto + (brutto / 100) * 5;
+                                if (bruttoRef.current) bruttoRef.current.value = newVal.toString();
+                                return { ...oldVal, brutto: newVal };
+                            })
+                        }
+                    >
+                        5%
+                    </div>
+                    <div
+                        onClick={(_e) =>
+                            setData((oldVal) => {
+                                const newVal = brutto + (brutto / 100) * 7.5;
+                                if (bruttoRef.current) bruttoRef.current.value = newVal.toString();
+                                return { ...oldVal, brutto: newVal };
+                            })
+                        }
+                    >
+                        7.5%
+                    </div>
+                    <div
+                        onClick={(_e) =>
+                            setData((oldVal) => {
+                                const newVal = brutto + (brutto / 100) * 10;
+                                if (bruttoRef.current) bruttoRef.current.value = newVal.toString();
+                                return { ...oldVal, brutto: newVal };
+                            })
+                        }
+                    >
+                        10%
+                    </div>
+                    <div
+                        onClick={(_e) =>
+                            setData((oldVal) => {
+                                const newVal = brutto + (brutto / 100) * 15;
+                                if (bruttoRef.current) bruttoRef.current.value = newVal.toString();
+                                return { ...oldVal, brutto: newVal };
+                            })
+                        }
+                    >
+                        15%
+                    </div>
+                    <div
+                        onClick={(_e) =>
+                            setData((oldVal) => {
+                                const newVal = brutto + (brutto / 100) * 20;
+                                if (bruttoRef.current) bruttoRef.current.value = newVal.toString();
+                                return { ...oldVal, brutto: newVal };
+                            })
+                        }
+                    >
+                        20%
+                    </div>
+                </div>
+            </div>
             <div className="mt-auto text-xs">(Bestätigen: Enter oder Tab)</div>
         </div>
     );
