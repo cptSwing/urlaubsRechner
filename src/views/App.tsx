@@ -1,8 +1,4 @@
 import { useState, useEffect } from "react";
-import PerWeightImplement, { ImplementEnum } from "../components/PerWeightImplement";
-import WeightInput from "../components/WeightInput";
-import WeightSplit from "../components/WeightSplit";
-import WhichPlates from "../components/WhichPlates";
 import { DataForm } from "../components/DataForm";
 
 const App = () => {
@@ -14,7 +10,7 @@ const App = () => {
     }, []);
 
     return (
-        <div className="w-3/4">
+        <div className="relative">
             <DataForm />
         </div>
     );
