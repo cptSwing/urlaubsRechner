@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 
 export const DataForm = () => {
     const dataState = useState<UrlaubsData>({
-        brutto: 2667,
+        brutto: 3000,
         urlaubstageJahrInsgesamt: 20,
         urlaubstageJahrGenommen: 0,
-        arbeitsTageWoche: 4,
-        monateGearbeitet: 0,
+        arbeitsTageWoche: 3,
+        monateGearbeitet: 1,
         erstesHalbjahr: true,
     });
     const [data] = dataState;
@@ -28,12 +28,12 @@ export const DataForm = () => {
 
 const BruttoGehalt = ({ dataState }: { dataState: [UrlaubsData, React.Dispatch<React.SetStateAction<UrlaubsData>>] }) => {
     const [data, setData] = dataState;
-    const { brutto, urlaubstageJahrInsgesamt, urlaubstageJahrGenommen, arbeitsTageWoche } = data;
+    const { brutto } = data;
     const bruttoRef = useRef<null | HTMLInputElement>(null);
 
     return (
         <div className="flex h-full flex-col items-start justify-start border p-1">
-            <div className="mb-2 text-sm">Brutto Gehalt:</div>
+            <div className="mb-2 text-sm">Brutto Gehalt / Monat:</div>
             <input
                 ref={bruttoRef}
                 className=""
@@ -335,6 +335,13 @@ const DisplayValues = ({ data }: { data: UrlaubsData }) => {
             <div className="">Quellen</div>
 
             {/* WARN wie wird hier gerundet? */}
+            <div>Jahresgehalt:</div>
+            <div>
+                <span>{brutto * 12}</span>
+            </div>
+            <div className="text-xs">Bruttogehalt * 12 (?)</div>
+            <div className="text-xs" />
+
             <div>Wochengehalt:</div>
             <div>{wochenGehalt ? <span>{wochenGehalt}</span> : <span className="text-red-600">Warte auf Eingabe</span>}</div>
             <div className="text-xs">
@@ -352,6 +359,13 @@ const DisplayValues = ({ data }: { data: UrlaubsData }) => {
             <div className="text-xs">
                 <a target="_blank"></a>
             </div>
+
+            <div className="mb-12 ">Stundenlohn:</div>
+            <div className="mb-12 ">
+                {stundenlohn ? <span>{stundenlohn}</span> : <span className="text-red-600">Warte auf Eingabe</span>}
+            </div>
+            <div className="mb-12 text-xs">Tagesgehalt / 8</div>
+            <div className="mb-12 text-xs" />
 
             <div>Urlaubstage / Monat:</div>
             <div>{urlaubsTageMonat ? <span>{urlaubsTageMonat}</span> : <span className="text-red-600">Warte auf Eingabe</span>}</div>
@@ -421,7 +435,7 @@ const DisplayValues = ({ data }: { data: UrlaubsData }) => {
                 </a>
             </div>
 
-            <div className="mt-5 !border-r-0 bg-purple-400">Monatliches Bruttogehalt inkl. Resturlaub:</div>
+            <div className="mt-5 !border-r-0 bg-purple-400">Monats-Brutto inkl. auszuzahlendem Resturlaub:</div>
             <div className="mt-5 !border-l-0 bg-purple-400 text-white">
                 {typeof auszuzahlen === "number" ? (
                     <span>{brutto + auszuzahlen}</span>
@@ -429,17 +443,8 @@ const DisplayValues = ({ data }: { data: UrlaubsData }) => {
                     <span className="text-red-600">Warte auf Eingabe</span>
                 )}
             </div>
-            <div />
-            <div />
-
-            <div className="mt-4 ">Stundenlohn:</div>
-            <div className="mt-4 ">
-                {stundenlohn ? <span>{stundenlohn}</span> : <span className="text-red-600">Warte auf Eingabe</span>}
-            </div>
-            <div className="mt-4 text-xs">Tagesgehalt / 8</div>
-            <div className="mt-4 text-xs">
-                <a target="_blank"></a>
-            </div>
+            <div className="mt-5 !border-r-0 bg-purple-400"></div>
+            <div className="mt-5 !border-l-0 bg-purple-400 text-white"></div>
         </div>
     );
 };
